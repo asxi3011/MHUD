@@ -202,16 +202,16 @@ public class VegenereForm extends javax.swing.JFrame {
             }
         return encryption;
     }
-    private String decryption (String cipherText,String keyGeneration) // HÀM MÃ HÓA PLAINTEXT
+    private String decryption (String cipherText,String keyGeneration) // HÀM GIẢI MÃ CIPHERTEXT
     {
         String decryption = "";
             for (int i = 0; i < cipherText.length() ; i++) {
-              String charPlainText = Character.toString(cipherText.charAt(i));
+              String charCipherText = Character.toString(cipherText.charAt(i));
               String charKeyGeneration = Character.toString(keyGeneration.charAt(i));
               int indexCipherText=0;
               int indexKeyGeneration=0;
                  for (int j = 0; j < alphabet.length;j++) {
-                     if(charPlainText.equalsIgnoreCase(alphabet[j]))    
+                     if(charCipherText.equalsIgnoreCase(alphabet[j]))    
                         indexCipherText=j;       
                      if (charKeyGeneration.equalsIgnoreCase(alphabet[j]))
                         indexKeyGeneration=j;
