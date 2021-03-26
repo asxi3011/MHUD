@@ -5,7 +5,10 @@
  */
 package BangChuDon;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
 
 import javax.swing.JOptionPane;
 >>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
@@ -306,6 +309,7 @@ public class BangChuDonForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JLabel lblKeyEncryption;
     private javax.swing.JTextArea tareaEcryption;
     private javax.swing.JTextArea tereaDecryption;
@@ -313,6 +317,8 @@ public class BangChuDonForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtKeyRandomFirst;
     private javax.swing.JTextField txtKeyRandomSecond;
 =======
+=======
+>>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
     private javax.swing.JTextArea tareaDecryption;
     private javax.swing.JTextArea tareaEncryption;
     private javax.swing.JTextField txtKeyDecrypt;
