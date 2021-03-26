@@ -144,6 +144,7 @@ public class ChuyenDichDongForm extends javax.swing.JFrame {
             String arraylainText=decryptCT(keyDecryption, cipherText);
             tareaEcryption.setText(arraylainText); 
         }
+<<<<<<< HEAD
            
         }
          catch(Exception  e){
@@ -194,6 +195,54 @@ public class ChuyenDichDongForm extends javax.swing.JFrame {
                     num[y] = x;
                     break;
                 }
+=======
+        else{
+            int number = plainText.length() % key .length();
+            if(number !=0){
+                //random character a -> z
+                for(int i = 0; i < key.length()-number  ; i++){
+                    int randomValue =(int) Math.round(Math.random()*2);
+                    plainText += (char)(randomValue + 120);
+                }
+            }
+            
+            String[] arrayKey = key.split("");
+            for(int i = 0; i < arrayKey.length ;i++){
+                int index = findMinCharacterIndex(arrayKey);
+                arrayKey[index] = "{";
+                for(int j = index; j < plainText.length(); j+= arrayKey.length){
+                    cipherText += plainText.charAt(j);
+                }
+            }
+        }
+        tareaDecryption.setText(cipherText);
+    }//GEN-LAST:event_btnEncryptionActionPerformed
+    private int findMinCharacterIndex(String[]array){
+        String maxCharacter = array[0];
+        int index = 0;
+        for(int i = 0; i < array.length; i++){
+            if(maxCharacter.compareTo(array[i]) > 0){
+                index = i;
+                maxCharacter = array[i];
+            }
+        }
+        return index;
+    }
+    private String formatInput(String input){
+        input = input.toLowerCase();
+        input = input.trim();
+        
+        return input;
+    }
+    //check character a->z
+    private boolean check(String string){
+        if(string.length()==0){
+            return false;
+        }
+        for(int i = 0; i < string.length() ; i++){
+            if(string.codePointAt(i) < 97 || string.codePointAt(i) > 122 ){
+                return false;
+>>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
             }
         }
         return num;

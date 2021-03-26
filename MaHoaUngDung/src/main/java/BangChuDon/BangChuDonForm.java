@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package BangChuDon;
+<<<<<<< HEAD
+=======
+
+import javax.swing.JOptionPane;
+>>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
 
 /**
  *
@@ -34,13 +39,25 @@ public class BangChuDonForm extends javax.swing.JFrame {
         lblKeyEncryption = new javax.swing.JLabel();
         txtKeyRandomFirst = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tareaEcryption = new javax.swing.JTextArea();
+        tareaEncryption = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         tereaDecryption = new javax.swing.JTextArea();
         txtKeyRandomSecond = new javax.swing.JTextField();
         btnRandomKey = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+<<<<<<< HEAD
+=======
+        setTitle("Bảng chữ đơn");
+
+        tareaEncryption.setColumns(20);
+        tareaEncryption.setRows(5);
+        jScrollPane1.setViewportView(tareaEncryption);
+
+        tareaDecryption.setColumns(20);
+        tareaDecryption.setRows(5);
+        jScrollPane2.setViewportView(tareaDecryption);
+>>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
 
         btnDecryption.setText("Decryption");
         btnDecryption.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +163,7 @@ public class BangChuDonForm extends javax.swing.JFrame {
 
     private void btnDecryptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptionActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
     }//GEN-LAST:event_btnDecryptionActionPerformed
 
     private void btnEncryptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncryptionActionPerformed
@@ -156,6 +174,94 @@ public class BangChuDonForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRandomKeyActionPerformed
 
+=======
+        String key = txtKeyEncrypt.getText();
+        String plainText = tareaEncryption.getText();
+        
+        plainText = formatInput(plainText);
+        key = formatInput(key);
+        String cipherText = "";
+        
+        if(key.length() != 26 || !check(key) || !check(plainText)){
+            JOptionPane.showMessageDialog(rootPane,"PlainText or Key not valid");
+        }
+        else{
+            for(int i = 0; i < plainText.length(); i++){
+                cipherText += key.charAt(plainText.codePointAt(i) - 97 );
+            }
+            tareaDecryption.setText(cipherText);
+        }
+    }//GEN-LAST:event_btnEncryptActionPerformed
+    //Random key button
+    private void btnRandomKeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRandomKeyActionPerformed
+        // TODO add your handling code here:
+        int []array = new int[26];
+        //Random array  number 0->25, then convert to String
+        for(int i = 0; i < 26; ){
+            int randomValue =(int) Math.round(Math.random()*25);
+            if(checkNotExist(array, i, randomValue)){
+                array[i++] = randomValue; 
+            }
+        }
+        String key = "";
+        for(int i = 0; i < 26; i++){
+            key += (char)(array[i]+97);
+        }
+        txtKeyEncrypt.setText(key);
+    }//GEN-LAST:event_btnRandomKeyActionPerformed
+    
+    private boolean checkNotExist (int [] arr,int size, int value){
+        
+        for(int i = 0; i < size; i++){
+            if(arr[i] == value)
+                return false;
+        }
+        return true;
+    }
+    //Decrypt button
+    private void btnDecryptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecryptActionPerformed
+        // TODO add your handling code here:
+        String cipherText = tareaDecryption.getText();
+        String key = txtKeyDecrypt.getText();
+        
+        cipherText = formatInput(cipherText);
+        key = formatInput(key);
+        String plainText = "";
+        // a -> z 26 characters
+        if(key.length() != 26 || !check(key) || !check(cipherText)){
+            JOptionPane.showMessageDialog(rootPane,"CipherText or Key not valid");
+        }
+        else{
+            String [] arrayCipher = cipherText.split("");
+            
+            for(int i = 0; i < cipherText.length(); i++){
+                String characterCipher = arrayCipher[i];
+                int characterIndex = key.indexOf(characterCipher);
+                //a -> z = 97 -> 122 in ascii
+                plainText += (char)(characterIndex+97);
+            }
+        }
+        tareaEncryption.setText(plainText);
+    }//GEN-LAST:event_btnDecryptActionPerformed
+    
+    private String formatInput(String input){
+        
+        input = input.toLowerCase();
+        input = input.trim();
+        
+        return input;
+    }
+    //check character a-z
+    private boolean check(String string){
+        
+        for(int i = 0; i < string.length() ; i++){
+            if(string.codePointAt(i) < 97 || string.codePointAt(i) > 122 ){
+                return false;
+            }
+        }
+        return true;
+    }
+>>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
     /**
      * @param args the command line arguments
      */
@@ -199,11 +305,18 @@ public class BangChuDonForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+<<<<<<< HEAD
     private javax.swing.JLabel lblKeyEncryption;
     private javax.swing.JTextArea tareaEcryption;
     private javax.swing.JTextArea tereaDecryption;
     private javax.swing.JTextField txtKeyDecryption;
     private javax.swing.JTextField txtKeyRandomFirst;
     private javax.swing.JTextField txtKeyRandomSecond;
+=======
+    private javax.swing.JTextArea tareaDecryption;
+    private javax.swing.JTextArea tareaEncryption;
+    private javax.swing.JTextField txtKeyDecrypt;
+    private javax.swing.JTextField txtKeyEncrypt;
+>>>>>>> parent of 07d0169 (Merge branch 'Tri' into developer)
     // End of variables declaration//GEN-END:variables
 }
